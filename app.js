@@ -37,10 +37,12 @@ let objArray = [
     {
     name: 'Sayed',
     jobTitle: 'Student',
+    boss: 'John',
     }, 
     {
     name: 'Vader',
-    jobTitle: 'Sith',    
+    jobTitle: 'Sith',
+    boss: 'Mike',    
     },
     {
     name: 'John',
@@ -48,3 +50,11 @@ let objArray = [
     }
 ];
 // objArray.forEach(data => console.log(data.name + ': ' + data.jobTitle))
+
+objArray.forEach(data => {
+    if (!data.boss) {
+        console.log(`${data.jobTitle} ${data.name} doesn't report to anybody.`)
+    } else {
+        console.log(`${data.jobTitle} ${data.name} reports to ${data.boss}.`);
+    }
+});
