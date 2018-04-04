@@ -13,16 +13,16 @@
 
 // --- DRILL 2
 
-// let object = {
-//     foo: 25,
-//     bar: 7,
-//     fum: 'mike',
-//     quux: 'sayed',
-//     spam: 1,
-// };
-//     for (let key in object) {
-//         console.log(object[key]);
-//     };   
+let object = {
+    foo: 25,
+    bar: 7,
+    fum: 'mike',
+    quux: 'sayed',
+    spam: 1,
+};
+    for (let key in object) {
+        // console.log(key + ': ' + object[key]);
+    };   
 
 // DRILL 3
 
@@ -31,3 +31,19 @@ let food = {
 }
 
 console.log(food.meals[3]);
+
+let obj1 = {
+    name: 'Sayed',
+    jobTitle: 'Student',
+}
+let obj2 = {
+    name: 'Vader',
+    jobTitle: 'Sith',
+}
+let obj3 = {
+    name: 'John',
+    jobTitle: 'Manager',
+}
+
+
+
