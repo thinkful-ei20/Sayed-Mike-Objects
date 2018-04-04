@@ -30,20 +30,21 @@ let food = {
     meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper'],
 }
 
-console.log(food.meals[3]);
+// console.log(food.meals[3]);
 
-let obj1 = {
+// DRILL 4
+let objArray = [
+    {
     name: 'Sayed',
     jobTitle: 'Student',
-}
-let obj2 = {
+    }, 
+    {
     name: 'Vader',
-    jobTitle: 'Sith',
-}
-let obj3 = {
+    jobTitle: 'Sith',    
+    },
+    {
     name: 'John',
     jobTitle: 'Manager',
-}
-
-
-
+    }
+];
+// objArray.forEach(data => console.log(data.name + ': ' + data.jobTitle))
