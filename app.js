@@ -86,7 +86,7 @@ function decodedWords(words) {
 }
 // decodedWords('craft block argon meter bells brown croon droop');
 
-function createCharacter(name, nickname, race, origin, attack, defence) {
+function createCharacter(name, nickname, race, origin, attack, defence, weapon) {
     return {
         name,
         nickname,
@@ -94,6 +94,7 @@ function createCharacter(name, nickname, race, origin, attack, defence) {
         origin,
         attack,
         defence,
+        weapon,
         describe: function() {
             return `${this.name} is a ${this.race} from ${this.origin}.`
         },
@@ -108,5 +109,70 @@ function createCharacter(name, nickname, race, origin, attack, defence) {
     }
 }
 
-const Gandalf = createCharacter('Gandalf the White', 'gandalf', 'wizard', 'Middle Earth', 10, 6);
-let characters = 
+const Gandalf = createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6);
+const Bilbo = createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1)
+const Aragorn = createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8)
+const Frodo = createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2)
+const Legolas = createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5)
+const Arwen = createCharacter('Arwen Undomeil', 'arwen', 'Half-Elf', 'Rivendell', 6, 6)
+let characters = [Gandalf, Bilbo, Aragorn, Frodo, Legolas, Arwen];
+
+const foundCharacter = characters.find(key => key.nickname === 'aragorn')
+// console.log(foundCharacter.describe())
+// console.log(characters.filter(key => key.race === 'Hobbit'))
+// console.log(characters.filter(key => key.attack > 5))
+// Gandalf.weapon = 'wizard staff'
+
+const HEROES = [
+    { id: 1, name: 'Captain America', squad: 'Avengers' },
+    { id: 2, name: 'Iron Man', squad: 'Avengers' },
+    { id: 3, name: 'Spiderman', squad: 'Avengers' },
+    { id: 4, name: 'Superman', squad: 'Justice League' },
+    { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+    { id: 6, name: 'Aquaman', squad: 'Justice League' },
+    { id: 7, name: 'Hulk', squad: 'Avengers' },
+  ];
+
+  function findOne(arr, query) {
+      for(const hero of arr) {
+          let assumeMatch = true
+          for (let key in query) {
+            if (query[key] !== hero[key]) {
+                assumeMatch = false
+                break;
+            }
+        }
+        if (!assumeMatch) continue;
+        return hero;
+    }
+    return null;
+  }
+
+  const Database = {
+    store: {
+      heroes: [
+        { id: 1, name: 'Captain America', squad: 'Avengers' },
+        { id: 2, name: 'Iron Man', squad: 'Avengers' },
+        { id: 3, name: 'Spiderman', squad: 'Avengers' },
+        { id: 4, name: 'Superman', squad: 'Justice League' },
+        { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+        { id: 6, name: 'Aquaman', squad: 'Justice League' },
+        { id: 7, name: 'Hulk', squad: 'Avengers' },
+      ]
+    },
+    findOne: function(query) {
+        for(const hero of this.store.heroes) {
+            let assumeMatch = true
+            for (let key in query) {
+              if (query[key] !== hero[key]) {
+                  assumeMatch = false
+                  break;
+              }
+          }
+          if (!assumeMatch) continue;
+          return hero;
+      }
+      return null;
+    }
+  };
+  console.log(Database.findOne({id: 5, squad: 'Justice League'}))
